@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]        # triggers on every push to main
+  workflow_dispatch:        # allows a manual "Run workflow" button in the Actions UI
+
+permissions:
+  contents: read            # to read the repo
+  pages: write              # to write to GitHub Pages
+  id-token: write           # required by the official pages deploy action
+
+concurrency:
+  group: pages              # only one deploy runs at a time
+  cancel-in-progress: true  # a new push cancels a stale deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci             # ci = clean install, faster and reproducible
+
+      - name: Build
+        run: npm run build      # outputs to ./build (as configured in vite.config.ts)
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build           # must match adapter `pages` / `assets` option
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
