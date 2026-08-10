@@ -20,12 +20,9 @@ export default defineConfig({
 				// "build" — that's the folder GitHub Actions will upload.
 				pages: 'build',
 				assets: 'build',
-				// fallback: undefined means a 404 page is NOT generated.
-				// Set fallback: '404.html' if you add client-side routing with dynamic params,
-				// so GitHub Pages serves that file for unknown paths and SvelteKit takes over.
-				fallback: undefined,
+				fallback: '404.html',
 				precompress: false,
-				strict: true
+				strict: false
 			})
 		})
 	]

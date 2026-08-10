@@ -1,0 +1,108 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+}
+
+/* ── Layout ──────────────────────────────────────────────── */
+
+/* Constrains content width; sections can still have full-bleed backgrounds
+   because .container sits *inside* the section, not around it */
+.container {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.grid-22 {
+  display: grid;
+  grid-template-columns: repeat(22, 1fr);
+  gap: 5px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+/* ── Type styles ─────────────────────────────────────────── */
+
+/* 1. Large heading — 18px light on mobile, 36px light on desktop */
+.t-heading {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* 2. Body large — 18px/24lh light on mobile, 20px/28lh light on desktop */
+.t-body-large {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+/* 3. Label — 12px semibold all caps, same on both */
+.t-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+    /* line-height: 12px; */
+}
+
+/* 4. Caption — 12px regular 18px line-height, same on both */
+.t-caption {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media (min-width: 768px) {
+  .t-heading {
+    font-size: 36px;
+     font-weight: 300;
+  }
+
+  .t-body-large {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+/* ── View transitions ────────────────────────────────────── */
+/* Default: whole page crossfades. Tweak duration/easing here. */
+/* ::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 300ms;
+  animation-timing-function: ease-in-out;
+} */
+
+/* Shared element (thumbnail → hero image).
+   Set view-transition-name on the matching elements to override. */
+/* Movement (position + size): controlled by ::view-transition-group */
+::view-transition-group(project-thumb) {
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.22, 1.4, 0.36, 1);
+}
+
+/* Cross-fade within the group: controlled by ::view-transition-old/new */
+::view-transition-old(project-thumb),
+::view-transition-new(project-thumb) {
+  animation-duration: 50ms;
+}
+
+.centered {
+  margin: 60px auto;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
