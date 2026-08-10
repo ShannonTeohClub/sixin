@@ -3,7 +3,6 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	base: '/sixin/',
 	plugins: [
 		sveltekit({
 			compilerOptions: {
@@ -16,7 +15,10 @@ export default defineConfig({
 				fallback: '404.html',
 				precompress: false,
 				strict: false
-			})
+			}),
+			paths: {
+				base: '/sixin'
+			}
 		})
 	]
 });
