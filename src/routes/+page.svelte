@@ -20,7 +20,9 @@
           {#each section.projects as project}
             <svelte:element
               this={project.Slug ? 'a' : 'div'}
-              href={project.Slug ? `${base}projects/${project.Slug}` : undefined}
+              href={project.Slug ? (project.Slug.startsWith('http') ? project.Slug : `${base}projects/${project.Slug}`) : undefined}
+              target={project.Slug?.startsWith('http') ? '_blank' : undefined}
+              rel={project.Slug?.startsWith('http') ? 'noopener noreferrer' : undefined}
               class="card {project.GridArea || ''}"
               style={project.BgColor ? `background: ${project.BgColor}` : ''}
             >
