@@ -5,19 +5,19 @@
     imageSpan?: string; bgColor?: string; imagePosition?: string;
     caption?: string; captionLink?: string; sideImage?: string;
   } = $props();
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
 
   const isSvg = $derived(image?.toLowerCase().endsWith('.svg') ?? false);
   let svgContent = $state('');
 
   $effect(() => {
     if (!isSvg || !image) { svgContent = ''; return; }
-    fetch(`${base}images/${image}`)
+    fetch(`${base}/images/${image}`)
       .then(r => r.text())
       .then(text => {
         svgContent = text.replace(
           /(href=["'])(?!(?:https?:|data:|\/))([^"']+)(["'])/g,
-          (_, pre, path, post) => `${pre}${base}images/${path}${post}`
+          (_, pre, path, post) => `${pre}${base}/images/${path}${post}`
         );
       });
   });
@@ -36,7 +36,7 @@
       {:else}
         <img
           class="block-image"
-          src="{base}images/{image}"
+          src="{base}/images/{image}"
           alt={subhead || ''}
           style="grid-column: {imageSpan}"
         />
@@ -46,7 +46,7 @@
     {#if hasSidePanel}
       <div class="side-panel">
         {#if sideImage}
-          <img class="side-image" src="{base}images/thumbnails/{sideImage}" alt="" />
+          <img class="side-image" src="{base}/images/thumbnails/{sideImage}" alt="" />
         {/if}
         {#if caption}
           {#if captionLink}

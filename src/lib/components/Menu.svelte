@@ -1,17 +1,17 @@
 <script lang="ts">
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
 </script>
 
 <nav>
   <div class="container">
     <div class="grid-22">
       <a href="{base}" class="nav-logo" aria-label="Sixin home">
-        <img src="{base}images/sixin-logomark.svg" alt="Sixin" />
+        <img src="{base}/images/sixin-logomark.svg" alt="Sixin" />
       </a>
       <div class="nav-links">
-        <a href="{base}info"   class="t-caption nav-link">INFO</a>
-        <a href="{base}design" class="t-caption nav-link">DESIGN</a>
-        <a href="{base}feed"   class="t-caption nav-link">FEED</a>
+        <a href="{base}/info"   class="t-caption nav-link">INFO</a>
+        <a href="{base}" class="t-caption nav-link">DESIGN</a>
+        <!-- <a href="{base}feed"   class="t-caption nav-link">FEED</a> -->
       </div>
     </div>
   </div>

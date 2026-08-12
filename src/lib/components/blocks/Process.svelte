@@ -6,7 +6,7 @@
     p3: string; p3Bullets: string;
     bgColor?: string;
   } = $props();
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
 
   const points = $derived.by(() =>
     [
@@ -32,7 +32,7 @@
 
       <div class="process-left">
         {#if image}
-          <img src="{base}images/{image}" alt="" aria-hidden="true" />
+          <img src="{base}/images/{image}" alt="" aria-hidden="true" />
         {/if}
       </div>
 

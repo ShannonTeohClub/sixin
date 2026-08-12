@@ -2,7 +2,7 @@
   let { subhead, quote, video, caption, body, bgColor = '#fafafa' }: {
     subhead: string; quote: string; video: string; caption: string; body: string; bgColor?: string;
   } = $props();
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
 </script>
 
 <section class="block-video-local" style="background: {bgColor}">
@@ -20,7 +20,7 @@
       {#if video}
         <!-- svelte-ignore a11y_media_has_caption -->
         <video class="block-video" autoplay loop muted playsinline>
-          <source src="{base}videos/{video}" />
+          <source src="{base}/videos/{video}" />
         </video>
       {/if}
 

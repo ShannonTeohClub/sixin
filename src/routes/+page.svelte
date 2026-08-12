@@ -1,7 +1,7 @@
 <script lang="ts">
   import Featured from '$lib/components/Featured.svelte';
   let { data } = $props();
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
 </script>
 
 <Featured />
@@ -20,7 +20,7 @@
           {#each section.projects as project}
             <svelte:element
               this={project.Slug ? 'a' : 'div'}
-              href={project.Slug ? (project.Slug.startsWith('http') ? project.Slug : `${base}projects/${project.Slug}`) : undefined}
+              href={project.Slug ? (project.Slug.startsWith('http') ? project.Slug : `${base}/projects/${project.Slug}`) : undefined}
               target={project.Slug?.startsWith('http') ? '_blank' : undefined}
               rel={project.Slug?.startsWith('http') ? 'noopener noreferrer' : undefined}
               class="card {project.GridArea || ''}"
@@ -30,11 +30,11 @@
               <div class="thumb">
                 <img
                   class="img-primary"
-                  src="{base}images/thumbnails/{project.Image}"
+                  src="{base}/images/thumbnails/{project.Image}"
                   alt={project.Title}
                 />
                 {#if project.HoverImage}
-                  <img class="img-hover" src="{base}images/thumbnails/{project.HoverImage}" alt="" aria-hidden="true" />
+                  <img class="img-hover" src="{base}/images/thumbnails/{project.HoverImage}" alt="" aria-hidden="true" />
                 {/if}
                 <!-- Interface only: description sits inside the thumbnail, top-left -->
                 <p class="t-caption desc-overlay" style={project.LabelColor ? `color: ${project.LabelColor}` : ""}>{project.Description}</p>

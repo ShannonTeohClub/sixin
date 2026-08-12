@@ -3,7 +3,7 @@
     subhead?: string; quote?: string; body?: string; bgColor?: string;
     images?: string; photoSpans?: string; rowHeights?: string;
   } = $props();
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
 
   const imageList = $derived(images.split(',').map(s => s.trim()).filter(Boolean));
   const heightList = $derived(rowHeights.split(',').map(s => parseInt(s.trim()) || 300));
@@ -38,7 +38,7 @@
             {#if item.image}
               <img
                 class="photo-item"
-                src="{base}images/{item.image}"
+                src="{base}/images/{item.image}"
                 alt=""
                 aria-hidden="true"
                 style="grid-column: {item.span}"

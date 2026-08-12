@@ -1,13 +1,13 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
 
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
 
   // Update filenames to match your files in static/videos/
   const slides = [
-    `${base}videos/featured-1.mp4`,
-    `${base}videos/featured-2.mp4`,
-    `${base}videos/featured-3.mp4`,
+    `${base}/videos/featured-1.mp4`,
+    `${base}/videos/featured-2.mp4`,
+    `${base}/videos/featured-3.mp4`,
   ];
 
   let { description = 'This is Shannon’s website. He is trained in and has work experience in 3 types of design: 2  Data Vis/Interface Design, 3  Industrial Design and 4  Communication Design. Sometimes all 3 areas manifest in 1  Exhibitions. In his free time he makes visual articles or videos on  5  Business or Culture.' }: { description?: string } = $props();

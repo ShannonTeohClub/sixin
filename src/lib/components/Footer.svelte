@@ -1,5 +1,5 @@
 <script lang="ts">
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
 </script>
 
 <footer>
@@ -8,15 +8,15 @@
 
       <div class="footer-brand">
         <a href="{base}" aria-label="Sixin home">
-          <img src="{base}images/sixin-logomark.svg" alt="Sixin" />
+          <img src="{base}/images/sixin-logomark.svg" alt="Sixin" />
         </a>
         <p class="t-caption rights">All rights reserved. 2026.</p>
       </div>
 
       <nav class="footer-nav">
-        <a href="{base}info"   class="t-caption footer-link">INFO</a>
-        <a href="{base}design" class="t-caption footer-link">DESIGN</a>
-        <a href="{base}feed"   class="t-caption footer-link">FEED</a>
+        <a href="{base}/info"   class="t-caption footer-link">INFO</a>
+        <a href="{base}/design" class="t-caption footer-link">DESIGN</a>
+        <a href="{base}/feed"   class="t-caption footer-link">FEED</a>
       </nav>
 
     </div>

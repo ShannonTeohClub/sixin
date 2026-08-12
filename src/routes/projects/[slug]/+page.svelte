@@ -9,7 +9,7 @@
   import InstagramEmbed from '$lib/components/blocks/InstagramEmbed.svelte';
 
   let { data } = $props();
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
   const { project, blocks } = data;
 </script>
 
@@ -23,7 +23,7 @@
         {#if project.HeroImage}
           <img
             class="reveal-bg"
-            src="{base}images/thumbnails/{project.HeroImage}"
+            src="{base}/images/thumbnails/{project.HeroImage}"
             alt=""
             aria-hidden="true"
             style={project.HeroImageStyle || ''}
@@ -56,7 +56,7 @@
                 <p class="t-caption cover-cinfo">{@html project.CInfo}</p>
               {/if}
               {#if project.HoverImage}
-                <img class="cover-img" src="{base}images/thumbnails/{project.HoverImage}" alt="" aria-hidden="true" style="view-transition-name: project-thumb" />
+                <img class="cover-img" src="{base}/images/thumbnails/{project.HoverImage}" alt="" aria-hidden="true" style="view-transition-name: project-thumb" />
               {/if}
               {#if project.Description}
                 <p class="t-body-large cover-desc">{project.Description}</p>
@@ -97,7 +97,7 @@
       {#if project.HeroImage}
         <img
           class="hero-img"
-          src="{base}images/thumbnails/{project.HeroImage}"
+          src="{base}/images/thumbnails/{project.HeroImage}"
           alt=""
           aria-hidden="true"
           style="{project.HeroImageStyle ? project.HeroImageStyle + '; ' : ''}view-transition-name: project-thumb"

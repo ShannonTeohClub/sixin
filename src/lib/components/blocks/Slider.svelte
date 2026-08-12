@@ -1,6 +1,6 @@
 <script lang="ts">
   let { images, subhead = '', quote = '', body = '', bgColor = '#fafafa' }: { images: string[]; subhead?: string; quote?: string; body?: string; bgColor?: string } = $props();
-  const base = import.meta.env.BASE_URL;
+  import { base } from '$app/paths';
 
   const GAP = 30;
 
@@ -70,7 +70,7 @@
     <div class="slider-track" bind:this={trackEl}>
       {#each images as src}
         <div class="slide" style="width: {slideWidth}px">
-          <img src="{base}images/{src}" alt="" aria-hidden="true" />
+          <img src="{base}/images/{src}" alt="" aria-hidden="true" />
         </div>
       {/each}
     </div>
