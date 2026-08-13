@@ -90,33 +90,35 @@
   <div class="container">
     <div class="grid-22">
       <p class="t-heading about-text">
-        ‘Six in’ is Shannon’s moniker as a design innovation unit– specialising in <span style="color: #7D9CB2;">graphic design</span> with an edge in <span style="color: #DCB7AE;">data vis</span>, <span style="color:#E1DDC6;">physical shapes</span> and <span style="color: #D8E3CF;">interactive physics</span>.
+       Hi I am Shannon Teoh, a digital designer that specialises in <span style="color: #7D9CB2;">graphic design</span> with an edge in <span style="color: #DCB7AE;">data vis</span>, <span style="color:#E1DDC6;">physical shapes</span> and <span style="color: #D8E3CF;">interactive physics</span>.
         <br> <br>
         My passion lies in design that works and touches; especially designs that works for businesses and touches with brands. 
  <br> <br>
 I believe that even small-medium enterprises in sunset industries can multiply its competitiveness through new value and direction. 
  <br> <br>
 Branding, advertising, new product development–regardless of the method, I aspire to device the most efficient strategy by confronting brutal facts with thorough and sometimes data-driven research.
+ <br> <br>
+ This website is still work in progress and have missing pages, unfinished text etc. It is still in the process of being built with code. It will have a real URL when its done.
       </p>
     </div>
   </div>
 </section>
 
 <!-- ── GSAP ScrollTrigger section ────────────────────────── -->
-<section class="gsap-section" bind:this={sectionEl}>
+<!-- <section class="gsap-section" bind:this={sectionEl}>
   <div class="expanding-panel" bind:this={panelEl}>
     <div class="container">
       <div class="grid-22">
 
-        <div class="panel-layers">
+        <div class="panel-layers"> -->
 
           <!-- Titles — all stacked at top: 40px, fade between states -->
-          <h2 class="t-heading panel-title" bind:this={title1El}>Expertise</h2>
+          <!-- <h2 class="t-heading panel-title" bind:this={title1El}>Expertise</h2>
           <h2 class="t-heading panel-title" bind:this={title2El} style="opacity:0">Scope of work</h2>
-          <h2 class="t-heading panel-title" bind:this={title3El} style="opacity:0">Deliverables &amp; record</h2>
+          <h2 class="t-heading panel-title" bind:this={title3El} style="opacity:0">Deliverables &amp; record</h2> -->
 
           <!-- State 1: Expertise pills -->
-          <div class="panel-state" bind:this={state1El}>
+          <!-- <div class="panel-state" bind:this={state1El}>
             <div class="expertise-row t-body-large">
               {#each expertisePills as pill}
                 <div
@@ -125,10 +127,10 @@ Branding, advertising, new product development–regardless of the method, I asp
                 >{pill.text}</div>
               {/each}
             </div>
-          </div>
+          </div> -->
 
           <!-- State 2: Scope of work pills -->
-          <div class="panel-state" bind:this={state2El} style="opacity:0">
+          <!-- <div class="panel-state" bind:this={state2El} style="opacity:0">
             <div class="scope-rows">
               {#each scopeRows as row}
                 <div class="scope-row t-caption">
@@ -138,10 +140,10 @@ Branding, advertising, new product development–regardless of the method, I asp
                 </div>
               {/each}
             </div>
-          </div>
+          </div> -->
 
           <!-- State 3: Deliverables & record — 4 gif columns -->
-          <div class="panel-state" bind:this={state3El} style="opacity:0">
+          <!-- <div class="panel-state" bind:this={state3El} style="opacity:0">
             <div class="deliverables-grid">
               {#each deliverables as item}
                 <div class="deliverable-col">
@@ -156,7 +158,7 @@ Branding, advertising, new product development–regardless of the method, I asp
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <style>
   /* ── Intro section ───────────────────────────────────────── */

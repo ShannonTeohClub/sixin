@@ -15,8 +15,8 @@
 
       <nav class="footer-nav">
         <a href="{base}/info"   class="t-caption footer-link">INFO</a>
-        <a href="{base}/design" class="t-caption footer-link">DESIGN</a>
-        <a href="{base}/feed"   class="t-caption footer-link">FEED</a>
+        <a href="{base}" class="t-caption footer-link">DESIGN</a>
+        <!-- <a href="{base}/feed"   class="t-caption footer-link">FEED</a> -->
       </nav>
 
     </div>
