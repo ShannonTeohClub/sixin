@@ -8,17 +8,16 @@ export type Project = {
 	HoverImage?: string;
 	LabelColor?: string;
 	BgColor?: string;
-	Location?: string;
 	Slug?: string;
 	SheetGID?: string;
 	HeroBgColor?: string;
+	HeroColor?: string;
 	HeroImage?: string;
 	HeroImageStyle?: string;
 	AInfo?: string;
 	BInfo?: string;
 	CInfo?: string;
 	Year?: string;
-	Description2?: string;
 };
 
 export function parseCSVRow(row: string): string[] {

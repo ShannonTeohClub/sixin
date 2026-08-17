@@ -7,7 +7,7 @@
 <Featured />
 
 {#each data.sections as section, i}
-  <section class={section.title.toLowerCase()}>
+  <section class={section.title.toLowerCase()} id={section.title.toLowerCase()}>
     <div class="container">
       <div class="grid-22">
 
@@ -46,8 +46,8 @@
               </span>
                 <h3 class="t-body-large title">
                   {@html project.Title}. <span style={project.LabelColor ? `color: ${project.LabelColor}` : ''}>
-                  {#if project.Description2 && section.title.toLowerCase() === 'exhibitions'}
-                  {project.Year}.  <br><span style="opacity: 40%;">{project.Description2}</span>
+                  {#if project.Description && section.title.toLowerCase() === 'exhibitions'}
+                  {project.Year}.  <br><span style="opacity: 40%;">{project.Description}</span>
                   {/if}</span>
                 </h3>
                 <p class="t-caption desc-below">{project.Description}</p>
@@ -300,7 +300,8 @@ text-wrap: balance;
     .product .cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 5px;
+      row-gap: 20px;
+      column-gap: 5px;
     }
 
     /* Graphic mobile: 2-column grid-template-areas */

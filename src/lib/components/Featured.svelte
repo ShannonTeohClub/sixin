@@ -48,10 +48,10 @@
       <div class="grid-22">
         <p class="t-heading caption">This is Shannon’s website. 
           He is trained in and has work experience 
-          in 3 types of design: <span class="circ-num">2</span>Data Vis / Interface Design, 
-          <span class="circ-num">3</span>Industrial Design and 
-          <span class="circ-num">4</span>Communication Design. 
-          Sometimes all 3 areas manifest in <span class="circ-num">1</span>Exhibitions. 
+          in 3 types of design: <span class="circ-num">2</span><a href="#product">Data Vis / Interface Design</a>, 
+          <span class="circ-num">3</span><a href="#product">Industrial Design</a> and 
+          <span class="circ-num">4</span><a href="#product">Communication Design</a>. 
+          Sometimes all 3 areas manifest in <span class="circ-num">1</span><a href="#product">Exhibitions</a>. 
           </p>
       </div>
     </div>
@@ -89,12 +89,19 @@
     justify-content: flex-end;
     padding-bottom: 2rem;
     pointer-events: none;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
   }
 
   .caption {
     grid-column: 1 / 20;
     color: white;
     display: inline;
+  }
+
+  .caption a {
+    pointer-events: all;
+    color: inherit;
+    text-decoration-thickness: 2px;
   }
 
     .circ-num {

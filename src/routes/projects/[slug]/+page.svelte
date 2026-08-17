@@ -32,7 +32,7 @@
         <div class="container reveal-content">
        
               <div class="grid-product">
-            <div class="hero-title" style={project.LabelColor ? `color: ${project.LabelColor}` : ''}>
+            <div class="hero-title" style={project.HeroColor || project.LabelColor ? `color: ${project.HeroColor || project.LabelColor}` : ''}>
               <span class="t-label hero-type">{project.Type}</span>
               <h1 class="t-heading">{@html project.Title}. {project.Year}.</h1>
             </div>
@@ -51,7 +51,7 @@
         <div class="container">
           <div class="grid-22">
        
-            <div class="cover-content" style={project.LabelColor ? `color: ${project.LabelColor}` : ''}>
+            <div class="cover-content" style={project.HeroColor || project.LabelColor ? `color: ${project.HeroColor || project.LabelColor}` : ''}>
               {#if project.CInfo}
                 <p class="t-caption cover-cinfo">{@html project.CInfo}</p>
               {/if}
@@ -78,9 +78,9 @@
         <div class="grid-22">
 
   <div class="project-hero-top-half">
-  <div class="hero-title" style={project.LabelColor ? `color: ${project.LabelColor}` : ''}>
+  <div class="hero-title" style={project.HeroColor || project.LabelColor ? `color: ${project.HeroColor || project.LabelColor}` : ''}>
     <span class="t-label hero-type">{project.Type}</span>
-    <h1 class="t-heading" >{@html project.Title}. {project.Year}. <br><div class="hero-desc">{project.Description2}</div></h1>
+    <h1 class="t-heading" >{@html project.Title}. {project.Year}. <br><div class="hero-desc">{project.Description}</div></h1>
   </div>
   <div class="subinfo">
     {#if project.AInfo}<p class="t-label">{@html project.AInfo}</p>{/if}

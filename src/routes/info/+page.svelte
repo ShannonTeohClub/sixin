@@ -163,7 +163,7 @@ Branding, advertising, new product development–regardless of the method, I asp
 <style>
   /* ── Intro section ───────────────────────────────────────── */
   .about-intro {
-    min-height: 1000px;
+    min-height: 1500px;
     display: flex;
     align-items: center;
   }
