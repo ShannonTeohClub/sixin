@@ -92,13 +92,11 @@
       <p class="t-heading about-text">
        Hi I am Shannon Teoh, a digital designer that specialises in <span style="color: #7D9CB2;">graphic design</span> with an edge in <span style="color: #DCB7AE;">data vis</span>, <span style="color:#E1DDC6;">physical shapes</span> and <span style="color: #D8E3CF;">interactive physics</span>.
         <br> <br>
-        My passion lies in design that works and touches; especially designs that works for businesses and touches with brands. 
- <br> <br>
 I believe that even small-medium enterprises in sunset industries can multiply its competitiveness through new value and direction. 
  <br> <br>
 Branding, advertising, new product development–regardless of the method, I aspire to device the most efficient strategy by confronting brutal facts with thorough and sometimes data-driven research.
  <br> <br>
- This website is still work in progress and have missing pages, unfinished text etc. It is still in the process of being built with code. It will have a real URL when its done.
+ This website development is still in progress. It is built in code without website building platforms. 
       </p>
     </div>
   </div>
@@ -163,7 +161,7 @@ Branding, advertising, new product development–regardless of the method, I asp
 <style>
   /* ── Intro section ───────────────────────────────────────── */
   .about-intro {
-    min-height: 1500px;
+    min-height: 1200px;
     display: flex;
     align-items: center;
   }

@@ -34,13 +34,11 @@ export async function load({ params, fetch }) {
 	const projects = parseCSV<Project>(await projectsRes.text());
 	const project = projects.find((p) => p.Slug === params.slug) ?? null;
 
-	let blocks: Block[] = [];
-	if (project?.SheetGID) {
-		const blocksRes = await fetch(
-			`${SHEET_BASE}?gid=${project.SheetGID}&single=true&output=csv`
-		);
-		blocks = parseCSV<Block>(await blocksRes.text());
-	}
+	const blocks: Promise<Block[]> = project?.SheetGID
+		? fetch(`${SHEET_BASE}?gid=${project.SheetGID}&single=true&output=csv`)
+				.then((r) => r.text())
+				.then((t) => parseCSV<Block>(t))
+		: Promise.resolve([]);
 
 	return { project, blocks };
 }

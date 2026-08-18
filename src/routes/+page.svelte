@@ -110,6 +110,11 @@ margin-bottom: 5px;
     overflow: hidden;
   }
 
+  .card {
+    transition: transform 0.35s cubic-bezier(0.22, 1.4, 0.36, 1);
+  }
+  .card:hover { border-top: 1px dashed #212121; }
+  .exhibitions .card:hover { transform: none; }
 
   .thumb .img-primary {
     display: block;

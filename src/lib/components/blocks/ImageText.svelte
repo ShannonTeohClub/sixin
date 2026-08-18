@@ -46,7 +46,7 @@
     {#if hasSidePanel}
       <div class="side-panel">
         {#if sideImage}
-          <img class="side-image" src="{base}/images/thumbnails/{sideImage}" alt="" />
+          <a href={captionLink}> <img class="side-image" src="{base}/images/thumbnails/{sideImage}" alt="" /></a>
         {/if}
         {#if caption}
           {#if captionLink}
