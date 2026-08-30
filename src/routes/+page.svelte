@@ -27,7 +27,7 @@
               style={project.BgColor ? `background: ${project.BgColor}` : ''}
             >
 
-              <div class="thumb">
+              <div class="thumb" style={project.HeroBgColor && section.title.toLowerCase() !== 'graphic' && section.title.toLowerCase() !== 'exhibitions' ? `background: ${project.HeroBgColor}` : ''}>
                 <img
                   class="img-primary"
                   src="{base}/images/thumbnails/{project.Image}"
@@ -37,7 +37,9 @@
                   <img class="img-hover" src="{base}/images/thumbnails/{project.HoverImage}" alt="" aria-hidden="true" />
                 {/if}
                 <!-- Interface only: description sits inside the thumbnail, top-left -->
-                <p class="t-caption desc-overlay" style={project.LabelColor ? `color: ${project.LabelColor}` : ""}>{project.Description}</p>
+                <p class="t-caption desc-overlay" style={project.LabelColor ? `color: ${project.LabelColor}` : ""}>
+                  {#each (project.Description || '').split(' ') as word, wi}{wi > 0 ? ' ' : ''}<span class="desc-word" style="transition-delay: {(wi * 0.03 + (wi % 3) * 0.01).toFixed(3)}s">{word}</span>{/each}
+                </p>
               </div>
 
               <div class="meta">
@@ -110,11 +112,11 @@ margin-bottom: 5px;
     overflow: hidden;
   }
 
-  .card {
-    transition: transform 0.35s cubic-bezier(0.22, 1.4, 0.36, 1);
+  .thumb {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .card:hover { border-top: 1px dashed #212121; }
-  .exhibitions .card:hover { transform: none; }
+  .card:hover .thumb { transform: scale(0.98); }
+  .exhibitions .card:hover .thumb { transform: none; }
 
   .thumb .img-primary {
     display: block;
@@ -234,6 +236,18 @@ margin-bottom: 5px;
   .interface .thumb { background: #212121; }
   /* .interface .card:nth-child(6) .thumb .img-primary { object-fit: contain;  } */
 
+  /* ── Interface: white overlay sweeps right → left on hover ─ */
+  .interface .thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.8);
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+  .interface .card:hover .thumb::after { clip-path: inset(0 0% 0 0); }
+
   /* ── Interface: description overlaid top-left on thumbnail ─ */
   .interface .desc-overlay {
     display: block;
@@ -241,9 +255,15 @@ margin-bottom: 5px;
     top: 8px;
     left: 8px;
     color: white;
-    width: 60%;
+    width: 70%;
     text-wrap: balance;
+    z-index: 1;
   }
+  .desc-word {
+    display: inline;
+    transition: font-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .interface .card:hover .desc-overlay { font-size: 16px; line-height: 26px; width: 80%; font-weight: 300;}
   .interface .desc-below { display: none; }
   .interface .type-label { color: #555 !important;
   }
@@ -259,6 +279,24 @@ text-wrap: balance;
 
 
   /* ── Graphic: image fills grid area, label bottom-left ───── */
+  .graphic .desc-overlay {
+    display: block;
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 100%;
+    text-wrap: balance;
+    max-width: 200px;
+    z-index: 1;
+    opacity: 0;
+    font-weight: 300;
+    transition: opacity 0.3s ease;
+    font-size: 8px;
+  }
+  .graphic .card:hover .desc-overlay { opacity: 1; font-size: 12px; line-height: 18px; }
+  .graphic .type-label { transition: opacity 0.3s ease; }
+  .graphic .card:hover .type-label { opacity: 0; }
+
   .graphic .card {
     position: relative;
     overflow: hidden;
@@ -364,7 +402,20 @@ text-wrap: balance;
     column-gap: 5px;
     height: 380px;
     overflow: hidden;
+    position: relative;
   }
+
+  .exhibitions .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #bbb;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .exhibitions .card:hover::after { clip-path: inset(0 0% 0 0); }
 
   /* Flatten .meta so its children are direct grid items of .card */
   .exhibitions .meta { display: contents; }
@@ -373,12 +424,16 @@ text-wrap: balance;
     grid-column: 3 / 10;
     grid-row: 2;
     align-self: end;
+    position: relative;
+    z-index: 1;
   }
 
   .exhibitions .type-label {
     grid-column: 3 / 6;
     grid-row: 4;
     align-self: start;
+    position: relative;
+    z-index: 1;
   }
 
   .exhibitions .location {
@@ -386,6 +441,8 @@ text-wrap: balance;
     grid-column: 7 / 10;
     grid-row: 4;
     align-self: start;
+    position: relative;
+    z-index: 1;
   }
 
   .exhibitions .thumb {
@@ -394,7 +451,8 @@ text-wrap: balance;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    position: relative;
+    z-index: 1;
   }
 
   .exhibitions .thumb .img-primary {
@@ -404,7 +462,9 @@ text-wrap: balance;
     aspect-ratio: unset;
     object-fit: contain;
     display: block;
+    transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
+  .exhibitions .card:hover .thumb .img-primary { filter: grayscale(1); }
 
   .exhibitions .desc-overlay,
   .exhibitions .desc-below { display: none; }

@@ -94,6 +94,8 @@ body {
 ::view-transition-group(project-thumb) {
   animation-duration: 350ms;
   animation-timing-function: cubic-bezier(0.22, 1.4, 0.36, 1);
+  
+   /* animation-timing-function: linear(0, 0.009 0.6%, 0.041 1.3%, 0.16 2.7%, 0.795 7.6%, 1.029 9.8%, 1.177 12%, 1.218 13.1%, 1.238 14.2%, 1.237 15.7%, 1.21 17.3%, 1.044 22.7%, 0.987 25%, 0.956 27%, 0.943 29%, 0.947 31.7%, 0.999 39.2%, 1.014 43.8%, 0.997 58.4%, 1); */
 }
 
 /* Cross-fade within the group: controlled by ::view-transition-old/new */

@@ -22,7 +22,7 @@
       videoEls[current]?.pause();
       current = (current + 1) % slides.length;
       videoEls[current]?.play().catch(() => {});
-    }, 4000);
+    }, 5000);
   });
 
   onDestroy(() => clearInterval(timer));
@@ -47,11 +47,10 @@
     <div class="container">
       <div class="grid-22">
         <p class="t-heading caption">This is Shannon’s website. 
-          He is trained in and has work experience 
-          in 3 types of design: <span class="circ-num">2</span><a href="#interface">Data Vis / Interface Design</a>, 
-          <span class="circ-num">3</span><a href="#product">Industrial Design</a> and 
-          <span class="circ-num">4</span><a href="#graphic">Communication Design</a>. 
-          Sometimes all 3 areas manifest in <span class="circ-num">1</span><a href="#exhibitions">Exhibitions</a>. 
+          He is trained in and has work experience in 3 types of design: <span class="circ-num">2</span><a href="#interface">data vis & interface</a>, <br>
+          <span class="circ-num">3</span><a href="#product">product</a> and 
+          <span class="circ-num">4</span><a href="#graphic">graphic</a>. 
+          Sometimes all 3 areas manifest in <span class="circ-num">1</span><a href="#exhibitions">exhibitions</a>. 
           </p>
       </div>
     </div>
@@ -102,6 +101,13 @@
     pointer-events: all;
     color: inherit;
     text-decoration-thickness: 2px;
+transition: 0.3s;
+  
+
+  }
+
+    .caption a:hover {
+opacity: 0.5;
   }
 
     .circ-num {
@@ -131,6 +137,11 @@
     width: 21px;
     height: 21px;
       font-size: 12px;
+  }
+
+   .caption-wrap {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 80%);
+   padding-bottom: 1.2rem;
   }
 }
 
