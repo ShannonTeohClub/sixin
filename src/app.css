@@ -104,6 +104,13 @@ body {
   animation-duration: 50ms;
 }
 
+.t-body-large a {
+  color: inherit;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+}
+.t-body-large a:hover { opacity: 0.5; }
+
 .centered {
   margin: 60px auto;
   width: inherit;

@@ -157,14 +157,14 @@
   .hero-arrow {
     position: absolute;
     bottom: 30px;
-    right: 30px;
+    left: 50%;
     line-height: 0;
     animation: arrow-float 1.8s ease-in-out infinite;
   }
 
   @keyframes arrow-float {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(7px); }
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(7px); }
   }
 
   /* ── Product hero ──────────────────────────────────────── */

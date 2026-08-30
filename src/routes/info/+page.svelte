@@ -56,6 +56,7 @@
   ];
 
   onMount(() => {
+    if (!sectionEl) return;
     gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
