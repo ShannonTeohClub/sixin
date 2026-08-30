@@ -102,9 +102,11 @@ margin-bottom: 5px;
 
   /* Only the hovered thumbnail gets the name — avoids duplicate names on the page */
   .card:hover .img-primary { view-transition-name: project-thumb; }
-  /* Product cards: transition from hover image instead of primary */
-  .product .card:hover .img-primary { view-transition-name: none; }
-  .product .card:hover .img-hover   { view-transition-name: project-thumb; }
+  /* Product cards: transition from hover image instead of primary (pointer devices only) */
+  @media (hover: hover) {
+    .product .card:hover .img-primary { view-transition-name: none; }
+    .product .card:hover .img-hover   { view-transition-name: project-thumb; }
+  }
 
   /* ── Shared thumbnail ───────────────────────────────────── */
   .thumb {
@@ -227,10 +229,12 @@ margin-bottom: 5px;
     text-wrap: balance;
     transition: opacity 0.4s ease;
   }
-  .product .card:hover .img-hover   { opacity: 1; }
-  .product .card:hover .type-label,
-  .product .card:hover .title       { opacity: 0; }
-  .product .card:hover .desc-below  { opacity: 1; }
+  @media (hover: hover) {
+    .product .card:hover .img-hover   { opacity: 1; }
+    .product .card:hover .type-label,
+    .product .card:hover .title       { opacity: 0; }
+    .product .card:hover .desc-below  { opacity: 1; }
+  }
 
   /* ── Interface: dark thumb bg (invisible behind cover, shows for transparent images) */
   .interface .thumb { background: #212121; }
@@ -286,7 +290,7 @@ text-wrap: balance;
     left: 8px;
     width: 100%;
     text-wrap: balance;
-    max-width: 200px;
+    max-width: 190px;
     z-index: 1;
     opacity: 0;
     font-weight: 300;
