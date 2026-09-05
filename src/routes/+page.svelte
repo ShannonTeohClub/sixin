@@ -240,17 +240,17 @@ margin-bottom: 5px;
   .interface .thumb { background: #212121; }
   /* .interface .card:nth-child(6) .thumb .img-primary { object-fit: contain;  } */
 
-  /* ── Interface: white overlay sweeps right → left on hover ─ */
+  /* ── Interface: white overlay sweeps left → right on hover ─ */
   .interface .thumb::after {
     content: '';
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.8);
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 0;
   }
-  .interface .card:hover .thumb::after { clip-path: inset(0 0% 0 0); }
+  .interface .card:hover .thumb::after { transform: translateX(0); }
 
   /* ── Interface: description overlaid top-left on thumbnail ─ */
   .interface .desc-overlay {
@@ -414,12 +414,12 @@ text-wrap: balance;
     position: absolute;
     inset: 0;
     background: #bbb;
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(-100%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 0;
     pointer-events: none;
   }
-  .exhibitions .card:hover::after { clip-path: inset(0 0% 0 0); }
+  .exhibitions .card:hover::after { transform: translateX(0); }
 
   /* Flatten .meta so its children are direct grid items of .card */
   .exhibitions .meta { display: contents; }

@@ -38,7 +38,7 @@
       class:active={i === current}
       muted
       playsinline
-      preload="auto"
+      preload={i === 0 ? 'auto' : 'none'}
     ></video>
   {/each}
 
@@ -92,7 +92,7 @@
   }
 
   .caption {
-    grid-column: 1 / 20;
+    grid-column: 1 / 19;
     color: white;
     display: inline;
   }
