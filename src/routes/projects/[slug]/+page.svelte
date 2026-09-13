@@ -7,6 +7,7 @@
   import VideoBlock from '$lib/components/blocks/VideoBlock.svelte';
   import PhotoGrid from '$lib/components/blocks/PhotoGrid.svelte';
   import InstagramEmbed from '$lib/components/blocks/InstagramEmbed.svelte';
+  import HeroArrow from '$lib/components/HeroArrow.svelte';
 
   let { data } = $props();
   import { base } from '$app/paths';
@@ -64,13 +65,7 @@
             </div>
           </div>
         </div>
-        <div class="hero-arrow" style={project.HeroColor || project.LabelColor ? `color: ${project.HeroColor || project.LabelColor}` : ''}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="34" viewBox="0 0 17 34" fill="none">
-            <path d="M8.35352 0.646484L8.35352 22.6465" stroke="currentColor"/>
-            <path d="M0.353516 22.6465L8.35352 30.6465" stroke="currentColor"/>
-            <path d="M16.3535 22.6465L8.35352 30.6465" stroke="currentColor"/>
-          </svg>
-        </div>
+        <HeroArrow style={project.HeroColor || project.LabelColor ? `color: ${project.HeroColor || project.LabelColor}` : ''} />
       </section>
 
     </div>
@@ -112,13 +107,7 @@
       {/if}</div>
         </div>
       </div>
-      <div class="hero-arrow" style={project.HeroColor || project.LabelColor ? `color: ${project.HeroColor || project.LabelColor}` : ''}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="34" viewBox="0 0 17 34" fill="none">
-          <path d="M8.35352 0.646484L8.35352 22.6465" stroke="currentColor"/>
-          <path d="M0.353516 22.6465L8.35352 30.6465" stroke="currentColor"/>
-          <path d="M16.3535 22.6465L8.35352 30.6465" stroke="currentColor"/>
-        </svg>
-      </div>
+      <HeroArrow style={project.HeroColor || project.LabelColor ? `color: ${project.HeroColor || project.LabelColor}` : ''} />
     </section>
   {/if}
 
@@ -154,19 +143,6 @@
 {/if}
 
 <style>
-  .hero-arrow {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    line-height: 0;
-    animation: arrow-float 1.8s ease-in-out infinite;
-  }
-
-  @keyframes arrow-float {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50%       { transform: translateX(-50%) translateY(7px); }
-  }
-
   /* ── Product hero ──────────────────────────────────────── */
   .product-hero-wrapper {
     position: relative;
@@ -272,7 +248,7 @@ justify-content: flex-start;
   .project-hero {
     position: relative;
     /* min-height: 750px; */
-    height: 100vh;
+    height: 100svh;
     background: #f5f5f5;
     overflow: hidden;
   }
@@ -350,8 +326,8 @@ justify-content: flex-start;
       display: flex;
       flex-direction: column;
       height: auto;
-      margin-top: 110px;
-      gap: 20%;
+      /* margin-top: 110px; */
+      gap: 16%;
       /* padding-bottom: 24px; */
     }
 
@@ -380,7 +356,7 @@ justify-content: flex-start;
       height: auto;
       /* gap: 20px; */
       padding-bottom: 40px;
-      margin-top: 15%;
+      margin-top: 10%;
     }
 
     .hero-img {

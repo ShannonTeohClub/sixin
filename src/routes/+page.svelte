@@ -1,7 +1,18 @@
 <script lang="ts">
   import Featured from '$lib/components/Featured.svelte';
+  import { onMount } from 'svelte';
+  import { beforeNavigate } from '$app/navigation';
   let { data } = $props();
   import { base } from '$app/paths';
+
+  onMount(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => { document.documentElement.style.scrollBehavior = ''; };
+  });
+
+  beforeNavigate(() => {
+    document.documentElement.style.scrollBehavior = '';
+  });
 </script>
 
 <Featured />
@@ -475,6 +486,7 @@ text-wrap: balance;
 
   /* ── Exhibitions mobile override (must come after global exhibitions rules) */
   @media (max-width: 767px) {
+    .exhibitions .card::after { display: none; }
     .exhibitions .card {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto auto;
