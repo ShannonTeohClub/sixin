@@ -51,6 +51,7 @@
     margin-bottom: 200px;
     display: grid;
     grid-template-columns: repeat(3, 100px);
+    justify-content: space-between;
     gap: 4px;
     padding: 20px;
   }
